@@ -3,8 +3,14 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# specific branch build
 trigger:
-- master
+  branches:
+    include:
+    - main
+    - releases/*
+    exclude:
+    - releases/old*
 
 pool:
   vmImage: ubuntu-latest
